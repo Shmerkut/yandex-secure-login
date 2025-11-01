@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Вход — Яндекс</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .login-box {
+      border: 1px solid #e0e0e0;
+      padding: 30px;
+      width: 350px;
+      text-align: center;
+    }
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+      color: #ff0000;
+      margin-bottom: 20px;
+    }
+    input {
+      width: 100%;
+      padding: 12px;
+      margin: 8px 0;
+      box-sizing: border-box;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    button {
+      width: 100%;
+      padding: 12px;
+      background: #ff0000;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .note {
+      font-size: 12px;
+      color: #666;
+      margin-top: 15px;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-box">
+    <div class="logo">Яндекс</div>
+    <h2>Войдите в аккаунт</h2>
+    <form onsubmit="alert('Данные не отправляются. Это учебный макет.'); return false;">
+      <input type="text" placeholder="Логин или email" required>
+      <input type="password" placeholder="Пароль" required>
+      <button type="submit">Войти</button>
+    </form>
+    <p class="note">Подтверждение необходимо для защиты от несанкционированного доступа.</p>
+  </div>
+</body>
+</html>
