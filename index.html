@@ -5,61 +5,185 @@
   <title>Вход — Яндекс</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background: #fff;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #1a0033, #00001a);
       display: flex;
       justify-content: center;
       align-items: center;
       height: 100vh;
-      margin: 0;
+      color: white;
+      overflow: hidden;
     }
-    .login-box {
-      border: 1px solid #e0e0e0;
-      padding: 30px;
-      width: 350px;
+    .container {
+      width: 100%;
+      max-width: 420px;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+    .login-card {
+      background: rgba(30, 30, 30, 0.85);
+      border-radius: 16px;
+      padding: 30px 25px;
       text-align: center;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
     }
     .logo {
       font-size: 24px;
       font-weight: bold;
+      color: #fff;
+      margin-bottom: 10px;
+    }
+    .logo span {
       color: #ff0000;
+    }
+    .back-arrow {
+      float: left;
+      font-size: 20px;
+      cursor: pointer;
       margin-bottom: 20px;
     }
-    input {
-      width: 100%;
-      padding: 12px;
-      margin: 8px 0;
-      box-sizing: border-box;
-      border: 1px solid #ccc;
-      border-radius: 4px;
+    .tabs {
+      display: flex;
+      gap: 5px;
+      margin-bottom: 20px;
     }
-    button {
-      width: 100%;
-      padding: 12px;
-      background: #ff0000;
-      color: white;
+    .tab {
+      flex: 1;
+      padding: 10px;
+      background: #404040;
       border: none;
-      border-radius: 4px;
-      font-size: 16px;
+      border-radius: 8px;
+      color: white;
+      font-size: 14px;
       cursor: pointer;
+      transition: background 0.2s;
     }
-    .note {
+    .tab.active {
+      background: #ff0000;
+    }
+    .input-field {
+      width: 100%;
+      padding: 14px;
+      margin: 10px 0;
+      background: #202020; /* Тёмный фон, как у карточки */
+      border: 1px solid #404040; /* Тонкая рамка */
+      border-radius: 8px;
+      color: white; /* Белый текст */
+      font-size: 16px;
+      outline: none;
+      box-sizing: border-box;
+    }
+    /* Плейсхолдер */
+    .input-field::placeholder {
+      color: #aaa;
+      opacity: 1;
+    }
+    .btn {
+      width: 100%;
+      padding: 14px;
+      margin: 10px 0;
+      background: #fff;
+      color: #000;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .btn:hover {
+      background: #f0f0f0;
+    }
+    .btn-secondary {
+      background: #404040;
+      color: white;
+    }
+    .btn-secondary:hover {
+      background: #505050;
+    }
+    .btn-small {
+      padding: 10px;
+      font-size: 14px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+    }
+    .footer {
+      margin-top: 20px;
       font-size: 12px;
-      color: #666;
-      margin-top: 15px;
+      color: #aaa;
+      text-align: center;
+    }
+    .footer a {
+      color: #fff;
+      text-decoration: underline;
+    }
+    .copyright {
+      position: absolute;
+      bottom: 10px;
+      left: 0;
+      right: 0;
+      text-align: center;
+      font-size: 11px;
+      color: #999;
     }
   </style>
 </head>
 <body>
-  <div class="login-box">
-    <div class="logo">Яндекс</div>
-    <h2>Войдите в аккаунт</h2>
-    <form onsubmit="alert('Данные не отправляются. Это учебный макет.'); return false;">
-      <input type="text" placeholder="Логин или email" required>
-      <input type="password" placeholder="Пароль" required>
-      <button type="submit">Войти</button>
-    </form>
-    <p class="note">Подтверждение необходимо для защиты от несанкционированного доступа.</p>
+  <div class="container">
+    <div class="login-card">
+      <div class="back-arrow">←</div>
+      <div class="logo">Яндекс<span>ID</span></div>
+      <h2 style="margin: 10px 0; font-size: 18px;">Войдите с Яндекс ID</h2>
+
+      <div class="tabs">
+        <button class="tab active">Почта</button>
+        <button class="tab">Телефон</button>
+      </div>
+
+      <input type="text" class="input-field" placeholder="Логин или email" />
+
+      <button class="btn" onclick="alert('Данные не отправляются. Это учебный макет.'); return false;">Войти</button>
+
+      <button class="btn btn-secondary" onclick="alert('Функция недоступна в учебной версии.');">
+        <span>👤</span> По лицу или отпечатку
+      </button>
+
+      <button class="btn btn-secondary" onclick="alert('Переход на страницу создания ID.');">
+        Создать ID
+      </button>
+
+      <div style="display: flex; gap: 10px; margin-top: 10px;">
+        <button class="btn btn-secondary btn-small" onclick="alert('QR-код недоступен.');">
+          <span>📱</span> QR-код
+        </button>
+        <button class="btn btn-secondary btn-small" onclick="alert('Дополнительные методы входа.');">
+          <span>➕</span> Ещё
+        </button>
+      </div>
+
+      <div class="footer">
+        Яндекс ID — ключ от всех сервисов<br>
+        <a href="#" onclick="alert('Информация о Яндекс ID.');">Узнать больше</a>
+      </div>
+    </div>
   </div>
+
+  <div class="copyright">
+    Ru &nbsp;&nbsp; Справка и поддержка &nbsp;&nbsp; © 2001–2025, Яндекс
+  </div>
+
+  <script>
+    // Переключение табов (визуальное)
+    document.querySelectorAll('.tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+      });
+    });
+  </script>
 </body>
 </html>
